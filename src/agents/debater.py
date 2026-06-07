@@ -50,6 +50,15 @@ class DebaterAgent(BaseAgent):
         self.conversation_history.append({"role": "assistant", "content": result})
         return result
 
+    def _extract_claim(self, raw: str) -> str:
+        """If LLM returns JSON, extract 'claim'/'text' field; otherwise use raw text."""
+        if raw and raw.lstrip().startswith("{"):
+            from src.debate.protocol import try_parse_json
+            parsed = try_parse_json(raw)
+            if isinstance(parsed, dict):
+                return str(parsed.get("claim") or parsed.get("text") or raw)
+        return raw
+
     def respond(self, context: dict) -> dict:
         round_num = context.get("round_number", 1)
         exchange_num = context.get("exchange_number", round_num)
@@ -60,7 +69,7 @@ class DebaterAgent(BaseAgent):
         evidence_text = SearchTool.format_for_agent(evidence_items)
 
         prompt = self._build_prompt(context, evidence_text)
-        claim = self._call_claude(prompt)
+        claim = self._extract_claim(self._call_claude(prompt))
         is_fallback = claim.startswith("[FALLBACK]")
         if is_fallback:
             self.gatekeeper.track_recovery()

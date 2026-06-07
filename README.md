@@ -272,6 +272,36 @@ git push origin --tags
 
 ---
 
+## Committed Results
+
+The result files committed to this repository (`results/transcript.json`, `results/verdict.json`, `results/evidence.json`, `results/run_summary.json`, `results/events.jsonl`) were generated with:
+
+```bash
+python3 -m src.main debate --demo --rounds 10
+```
+
+This runs in **demo mode** — no API keys are required. All arguments are pre-written and clearly labelled `[DEMO MODE]`. The winner (`Con`) and verdict text are deterministic pre-written content; they do not reflect a live LLM judgment.
+
+**Live mode** requires:
+- `ANTHROPIC_API_KEY` in `.env` — mandatory; the system exits with a clear error if missing.
+- `SERPER_API_KEY` in `.env` — optional; if absent, the system uses clearly-labelled fallback evidence (`[DEMO EVIDENCE]` snippets). It never presents fallback evidence as live search results.
+
+To run live:
+```bash
+cp .env.example .env
+# edit .env: ANTHROPIC_API_KEY=sk-ant-...  (required)
+#            SERPER_API_KEY=...            (optional — enables live web search)
+python3 -m src.main debate --rounds 10
+```
+
+---
+
+## Results Safety
+
+Each run **overwrites** the standard result files in `results/`. The `events.jsonl` log is truncated at the start of every run so it reflects only the most recent execution. If you need to preserve prior results, copy the `results/` folder before re-running.
+
+---
+
 ## Assignment Metadata
 
 - **Course:** Orchestration of AI Agents

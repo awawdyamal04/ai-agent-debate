@@ -50,10 +50,16 @@ class DemoRunner:
             self.console.rule(f"[dim]Exchange {rnd} / {self.num_rounds}")
 
             pro_msg = get_demo_pro_msg(rnd, rnd)
+            if pro_msg.get("stance") != "PRO":
+                logger.warning(f"[Demo] Pro stance drift round {rnd} — corrected")
+                pro_msg["stance"] = "PRO"
             self.log_tool.log_message(pro_msg)
             self._panel(pro_msg["claim"], f"PRO — Round {rnd}", "blue")
 
             con_msg = get_demo_con_msg(rnd, rnd, pro_msg["claim"])
+            if con_msg.get("stance") != "CON":
+                logger.warning(f"[Demo] Con stance drift round {rnd} — corrected")
+                con_msg["stance"] = "CON"
             self.log_tool.log_message(con_msg)
             self._panel(con_msg["claim"], f"CON — Round {rnd}", "red")
 

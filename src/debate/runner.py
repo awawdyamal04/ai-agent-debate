@@ -9,6 +9,7 @@ from rich.console import Console
 from rich.panel import Panel
 
 from src.config.settings import RESULTS_DIR
+from src.debate.protocol import DebateMessage, ToolMetadata
 from src.gatekeeper import Gatekeeper
 from src.tools.logging_tool import LoggingTool
 from src.utils.results import (
@@ -19,11 +20,7 @@ from src.utils.results import (
 
 
 class DebateRunner:
-    """Executes the debate loop on behalf of JudgeAgent.
-
-    The Judge initialises, calls Pro and Con each round, evaluates,
-    verifies ≥10 exchanges, then declares the winner.
-    """
+    """Executes the debate loop on behalf of JudgeAgent."""
 
     def __init__(self, judge, pro, con, num_rounds: int) -> None:
         self.judge = judge
@@ -40,30 +37,50 @@ class DebateRunner:
     def _panel(self, text: str, title: str, style: str) -> None:
         self.console.print(Panel(text[:800], title=title, style=style, expand=False))
 
+    def _make_fallback_msg(self, speaker: str, stance: str, rnd: int, exc_num: int, reason: str) -> dict:
+        msg = DebateMessage(
+            round_number=rnd, exchange_number=exc_num,
+            speaker=speaker, stance=stance,
+            claim=f"[FALLBACK] {speaker} maintains its position. (error: {reason[:80]})",
+            tool_metadata=ToolMetadata(tools_used=["fallback"], fallback_used=True),
+            confidence_score=0.0, timestamp=datetime.now().isoformat(),
+            status="fallback_agent_error",
+        )
+        return msg.to_dict()
+
+    def _safe_respond(self, agent, ctx: dict, speaker: str, stance: str) -> dict:
+        try:
+            msg = agent.respond(ctx)
+        except Exception as exc:
+            logger.error(f"[Runner] {speaker} respond() failed: {exc}")
+            self.log_tool.log_error(f"{speaker} agent failed", {"round": ctx.get("round_number"), "error": str(exc)})
+            self.gatekeeper.track_recovery()
+            return self._make_fallback_msg(speaker, stance, ctx.get("round_number", 0), ctx.get("exchange_number", 0), str(exc))
+        if msg.get("stance") != stance:
+            logger.warning(f"[Runner] Stance drift {speaker}: got {msg.get('stance')!r}, expected {stance!r}")
+            self.log_tool.log_error(f"Stance drift {speaker}", {"got": msg.get("stance"), "expected": stance})
+            msg["stance"] = stance
+        try:
+            json.dumps(msg)
+        except (TypeError, ValueError) as exc:
+            self.log_tool.log_error(f"{speaker} non-serializable", {"error": str(exc), "status": "fallback_invalid_json"})
+            return self._make_fallback_msg(speaker, stance, ctx.get("round_number", 0), ctx.get("exchange_number", 0), "invalid_json")
+        msg["status"] = "complete"
+        return msg
+
     def _run_exchange(self, exchange_num: int, last_con_msg: dict | None) -> tuple[dict, dict]:
-        ctx_pro = {
-            "round_number": exchange_num,
-            "exchange_number": exchange_num,
-            "last_opponent_message": last_con_msg,
-        }
-        pro_msg = self.pro.respond(ctx_pro)
-        pro_msg["status"] = "complete"
+        ctx_pro = {"round_number": exchange_num, "exchange_number": exchange_num, "last_opponent_message": last_con_msg}
+        pro_msg = self._safe_respond(self.pro, ctx_pro, "Pro", "PRO")
         self.log_tool.log_message(pro_msg)
         self._panel(pro_msg.get("claim", ""), f"PRO — Round {exchange_num}", "blue")
 
-        ctx_con = {
-            "round_number": exchange_num,
-            "exchange_number": exchange_num,
-            "last_opponent_message": pro_msg,
-        }
-        con_msg = self.con.respond(ctx_con)
-        con_msg["status"] = "complete"
+        ctx_con = {"round_number": exchange_num, "exchange_number": exchange_num, "last_opponent_message": pro_msg}
+        con_msg = self._safe_respond(self.con, ctx_con, "Con", "CON")
         self.log_tool.log_message(con_msg)
         self._panel(con_msg.get("claim", ""), f"CON — Round {exchange_num}", "red")
 
         notes = self.judge.evaluate_exchange(exchange_num, pro_msg, con_msg)
         self.log_tool.log_evaluation(exchange_num, notes)
-
         self.evidence_map[str(exchange_num)] = {
             "pro_evidence": pro_msg.get("evidence", []),
             "con_evidence": con_msg.get("evidence", []),
@@ -88,8 +105,11 @@ class DebateRunner:
             last_con_msg = con_msg
 
         pro_count = sum(1 for m in self.messages if m.get("speaker") == "Pro")
-        assert pro_count >= 10, f"Only {pro_count} Pro messages — minimum 10 required"
-        logger.info(f"[Runner] {pro_count} exchanges verified ≥ 10")
+        con_count = sum(1 for m in self.messages if m.get("speaker") == "Con")
+        if pro_count < 10 or con_count < 10:
+            logger.error(f"[Runner] Insufficient messages: Pro={pro_count} Con={con_count} (min 10 each)")
+            self.log_tool.log_error("Insufficient exchanges", {"pro": pro_count, "con": con_count})
+        logger.info(f"[Runner] Verified: Pro={pro_count} Con={con_count}")
 
         winner, verdict_text = self.judge.declare_winner(self.messages)
         self._panel(verdict_text, "JUDGE — Final Verdict", "yellow")

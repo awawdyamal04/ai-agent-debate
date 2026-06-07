@@ -13,11 +13,15 @@ class LoggingTool:
         self.events_path.parent.mkdir(parents=True, exist_ok=True)
 
     def _write(self, event_type: str, data: dict) -> None:
-        event = {"timestamp": datetime.now().isoformat(), "event_type": event_type, **data}
-        with open(self.events_path, "a", encoding="utf-8") as fh:
-            fh.write(json.dumps(event) + "\n")
+        try:
+            event = {"timestamp": datetime.now().isoformat(), "event_type": event_type, **data}
+            with open(self.events_path, "a", encoding="utf-8") as fh:
+                fh.write(json.dumps(event, default=str) + "\n")
+        except Exception as exc:
+            logger.error(f"[LoggingTool] Failed to write event {event_type!r}: {exc}")
 
     def log_debate_start(self, topic: str, num_rounds: int) -> None:
+        self.events_path.write_text("")  # overwrite at start of each run
         self._write("debate_start", {"topic": topic, "num_rounds": num_rounds})
         logger.info(f"[Event] debate_start topic='{topic}' rounds={num_rounds}")
 

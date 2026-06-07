@@ -16,3 +16,21 @@
 2026-06-07 21:11:50 | INFO     | src.utils.results:40 | Evidence → /home/u1/ai-agent-debate/results/evidence.json
 2026-06-07 21:11:50 | INFO     | src.utils.results:53 | Verdict → /home/u1/ai-agent-debate/results/verdict.json (winner=Con)
 2026-06-07 21:11:50 | INFO     | src.gatekeeper:61 | Gatekeeper stats saved → /home/u1/ai-agent-debate/results/run_summary.json
+2026-06-07 21:45:27 | INFO     | src.utils.logger:26 | File logging active → /home/u1/ai-agent-debate/results/debate.log
+2026-06-07 21:45:27 | INFO     | src.tools.logging_tool:26 | [Event] debate_start topic='Do smartphones make us less smart?' rounds=10
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=1
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=2
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=3
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=4
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=5
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=6
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=7
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=8
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=9
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:41 | [Event] judge_evaluation round=10
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:45 | [Event] verdict winner=Con
+2026-06-07 21:45:29 | INFO     | src.tools.logging_tool:53 | [Event] debate_end winner=Con exchanges=10
+2026-06-07 21:45:29 | INFO     | src.utils.results:28 | Transcript → /home/u1/ai-agent-debate/results/transcript.json (20 messages)
+2026-06-07 21:45:29 | INFO     | src.utils.results:40 | Evidence → /home/u1/ai-agent-debate/results/evidence.json
+2026-06-07 21:45:29 | INFO     | src.utils.results:53 | Verdict → /home/u1/ai-agent-debate/results/verdict.json (winner=Con)
+2026-06-07 21:45:29 | INFO     | src.gatekeeper:61 | Gatekeeper stats saved → /home/u1/ai-agent-debate/results/run_summary.json

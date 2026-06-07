@@ -55,6 +55,24 @@ class JudgeAgent(BaseAgent):
     def _verdict_call(self, prompt: str) -> str:
         return self._judge_call(prompt, max_tokens=MAX_TOKENS_JUDGE)
 
+    def _deterministic_winner(self) -> str:
+        """Count 'edge to Pro/Con' tags in evaluation notes; last-note tiebreaker; defaults to Con."""
+        pro_wins = sum(1 for n in self.evaluation_notes if "edge to pro" in n.lower())
+        con_wins = sum(1 for n in self.evaluation_notes if "edge to con" in n.lower())
+        if pro_wins > con_wins:
+            logger.warning(f"[Judge] Tie-break by round wins → Pro ({pro_wins} vs {con_wins})")
+            return "Pro"
+        if con_wins > pro_wins:
+            logger.warning(f"[Judge] Tie-break by round wins → Con ({con_wins} vs {pro_wins})")
+            return "Con"
+        if self.evaluation_notes:
+            last = self.evaluation_notes[-1].lower()
+            if last.count("pro") > last.count("con"):
+                logger.warning("[Judge] Tie-break by final-round note → Pro")
+                return "Pro"
+        logger.warning("[Judge] Tie-break: defaulting to Con")
+        return "Con"
+
     def declare_winner(self, messages: list[dict]) -> tuple[str, str]:
         transcript = messages_to_text(messages)
         all_notes = "\n\n".join(self.evaluation_notes)
@@ -82,7 +100,9 @@ class JudgeAgent(BaseAgent):
                         logger.info("[Judge] Winner declared: Con")
                         return "Con", verdict_text
             logger.warning(f"[Judge] Could not parse winner (attempt {attempt + 1})")
-        raise ValueError("Judge failed to declare a clear winner after 3 attempts")
+        winner = self._deterministic_winner()
+        logger.warning(f"[Judge] Tie-breaker applied → {winner}")
+        return winner, "[FALLBACK VERDICT] Winner by tie-breaker (LLM did not produce a clear verdict)."
 
     def respond(self, context: dict) -> dict:
         """Judge responds with an evaluation message."""
