@@ -1,0 +1,306 @@
+{
+  "saved_at": "2026-06-07T21:11:50.485300",
+  "total_rounds": 10,
+  "evidence_by_round": {
+    "1": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "2": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "3": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "4": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "5": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "6": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "7": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "8": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "9": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    },
+    "10": {
+      "pro_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "con_evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ]
+    }
+  }
+}

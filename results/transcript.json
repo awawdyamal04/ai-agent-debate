@@ -1,0 +1,729 @@
+{
+  "topic": "Do smartphones make us less smart?",
+  "saved_at": "2026-06-07T21:11:50.484288",
+  "total_messages": 20,
+  "pro_messages": 10,
+  "con_messages": 10,
+  "messages": [
+    {
+      "round_number": 1,
+      "exchange_number": 1,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Smartphones demonstrably shorten our attention spans. Research by Microsoft in 2015 found that the average human attention span dropped from 12 seconds to 8 seconds — coinciding precisely with the smartphone era. When we compulsively check our devices every few minutes, we train our brains for interruption rather than sustained concentration, making deep work increasingly difficult.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.458217",
+      "status": "complete"
+    },
+    {
+      "round_number": 1,
+      "exchange_number": 1,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "The claim that smartphones reduce intelligence fundamentally misunderstands what intelligence means in the 21st century. A smartphone gives any person access to the sum of human knowledge in seconds. This is not cognitive atrophy — it is cognitive amplification. UNESCO data shows that smartphone-enabled internet access has dramatically improved educational outcomes in developing nations where traditional schooling is limited.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Smartphones demonstrably shorten our attention spans. Research by Microsoft in 2015 found that the average human attenti",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.459421",
+      "status": "complete"
+    },
+    {
+      "round_number": 2,
+      "exchange_number": 2,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Our reliance on smartphones for instant answers is quietly eroding our capacity for independent recall. When we Google instead of remember, we prevent the consolidation of information into long-term memory. A 2011 study by Betsy Sparrow at Columbia found that people are less likely to remember information if they believe it will remain digitally accessible — a phenomenon called 'cognitive offloading' that weakens our natural memory systems.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.461044",
+      "status": "complete"
+    },
+    {
+      "round_number": 2,
+      "exchange_number": 2,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "The 'cognitive offloading' argument actually supports the Con position. Freeing working memory from rote recall allows the brain to engage in higher-order thinking — analysis, synthesis, creative problem-solving. Calculators did not make us worse at mathematics; they freed us from arithmetic so we could tackle harder problems. Smartphones do the same at civilisational scale.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Our reliance on smartphones for instant answers is quietly eroding our capacity for independent recall. When we Google i",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.462123",
+      "status": "complete"
+    },
+    {
+      "round_number": 3,
+      "exchange_number": 3,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Smartphone notifications create a state of continuous partial attention that fundamentally hinders learning. Research by Gloria Mark at UC Irvine found that after an interruption, it takes an average of 23 minutes to regain full concentration. With the average user receiving 80+ notifications daily, meaningful intellectual engagement becomes nearly impossible.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.463583",
+      "status": "complete"
+    },
+    {
+      "round_number": 3,
+      "exchange_number": 3,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "Attention is not a fixed resource that smartphones simply drain. Studies by the Pew Research Center show that smartphone users are more likely to engage with news, participate in civic discourse, and seek continuing education than non-users. The real picture is one of expanded cognitive engagement, not impoverishment.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Smartphone notifications create a state of continuous partial attention that fundamentally hinders learning. Research by",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.464411",
+      "status": "complete"
+    },
+    {
+      "round_number": 4,
+      "exchange_number": 4,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Longitudinal studies increasingly link heavy smartphone use to lower academic achievement. A 2019 study published in Computers in Human Behavior found that students who used their phones more than four hours per day scored significantly lower on standardised tests than moderate users. The correlation is not accidental — distracted studying produces shallower learning.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.465950",
+      "status": "complete"
+    },
+    {
+      "round_number": 4,
+      "exchange_number": 4,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "Smartphones have been transformative for learning outcomes when used appropriately. The Khan Academy — accessed primarily via smartphone — has delivered high-quality mathematics and science education to 150 million learners globally, many of whom had no prior access to qualified teachers. This is intelligence expansion at a scale no previous technology achieved.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Longitudinal studies increasingly link heavy smartphone use to lower academic achievement. A 2019 study published in Com",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.466844",
+      "status": "complete"
+    },
+    {
+      "round_number": 5,
+      "exchange_number": 5,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Smartphones are systematically replacing the cognitive effort required for problem-solving. GPS navigation has measurably impaired our spatial reasoning — a 2017 study in Nature Communications showed that London taxi drivers who switched to GPS showed atrophied hippocampal activity compared to those who memorised routes. What we don't use, we lose.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.468337",
+      "status": "complete"
+    },
+    {
+      "round_number": 5,
+      "exchange_number": 5,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "The GPS-versus-hippocampus argument proves too much. We do not lament that writing weakened our capacity for oral tradition, or that maps weakened our reliance on landmarks. Cognitive tool use is not cognitive decline — it is cognitive evolution. Smartphones are today's external scaffolding for an enlarged effective intelligence.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Smartphones are systematically replacing the cognitive effort required for problem-solving. GPS navigation has measurabl",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.469282",
+      "status": "complete"
+    },
+    {
+      "round_number": 6,
+      "exchange_number": 6,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Social media on smartphones exploits our dopamine systems, creating compulsive engagement loops that crowd out reflective thought. The very design of these platforms — variable reward schedules, infinite scrolling, likes and reactions — is engineered to maximise time-on-device at the direct expense of sustained intellectual focus.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.470909",
+      "status": "complete"
+    },
+    {
+      "round_number": 6,
+      "exchange_number": 6,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "The extended mind theory (Clark and Chalmers, 1998) argues that cognition is not confined to the skull. When information is reliably accessible via smartphone, it functionally becomes part of our cognitive system. The question is not whether we hold facts in biological memory, but whether our total cognitive capability — biological plus digital — has increased. It has.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Social media on smartphones exploits our dopamine systems, creating compulsive engagement loops that crowd out reflectiv",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.471783",
+      "status": "complete"
+    },
+    {
+      "round_number": 7,
+      "exchange_number": 7,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "The evidence on adolescent smartphone use is particularly alarming. Jean Twenge's landmark research in 'iGen' documents that teens who spend more than 5 hours per day on smartphones are 66% more likely to have at least one suicide risk factor, and show significantly lower critical thinking scores. The developing brain is especially vulnerable to these disruptions.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.473390",
+      "status": "complete"
+    },
+    {
+      "round_number": 7,
+      "exchange_number": 7,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "Regarding adolescent data: the research is deeply contested. A 2019 re-analysis by Andrew Przybylski at Oxford found that the effect size of smartphone use on adolescent wellbeing is no larger than that of wearing glasses or eating potatoes. Correlation studies cannot establish that smartphones cause academic decline; confounders abound.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "The evidence on adolescent smartphone use is particularly alarming. Jean Twenge's landmark research in 'iGen' documents ",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.474220",
+      "status": "complete"
+    },
+    {
+      "round_number": 8,
+      "exchange_number": 8,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Smartphones train us to expect immediate answers, degrading our tolerance for productive struggle. When students reach for a device at the first sign of difficulty, they deprive themselves of the effortful retrieval practice that builds deep understanding. Struggle is where learning happens — smartphones circumvent that process entirely.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.475645",
+      "status": "complete"
+    },
+    {
+      "round_number": 8,
+      "exchange_number": 8,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "Smartphones enable real-time collaboration that multiplies intellectual capacity. Google Docs, Slack, shared research databases, and instant translation tools mean that a team of smartphone users can produce work that no individual — regardless of innate intelligence — could achieve alone. Collective intelligence has never been higher.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Smartphones train us to expect immediate answers, degrading our tolerance for productive struggle. When students reach f",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.476602",
+      "status": "complete"
+    },
+    {
+      "round_number": 9,
+      "exchange_number": 9,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "Reading comprehension deteriorates when we read on screens, according to extensive research. A 2018 meta-analysis of 54 studies found that digital reading produced significantly worse comprehension than print reading. Smartphones, with their fractured reading environment and competing notifications, represent the worst possible medium for deep text engagement.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.478075",
+      "status": "complete"
+    },
+    {
+      "round_number": 9,
+      "exchange_number": 9,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "Multilingual translation via smartphones has extended cognitive reach across language barriers. Accessibility features have empowered people with disabilities to participate fully in intellectual life. These are not marginal benefits — they represent profound expansions of who gets to be intelligent.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "Reading comprehension deteriorates when we read on screens, according to extensive research. A 2018 meta-analysis of 54 ",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.478905",
+      "status": "complete"
+    },
+    {
+      "round_number": 10,
+      "exchange_number": 10,
+      "speaker": "Pro",
+      "stance": "PRO",
+      "claim": "The cumulative evidence is overwhelming: smartphones, through attentional fragmentation, memory offloading, problem-solving shortcuts, and addictive design, are systematically degrading the cognitive capabilities that define human intelligence. The Pro position stands: smartphones make us less smart, and the data makes this undeniable.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Studies suggest heavy smartphone use correlates with reduced sustained attention and increased distractibility in some populations.",
+          "url": "https://example.com/demo/pro/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Research indicates reliance on search engines may reduce the need to memorise facts, potentially weakening long-term memory consolidation.",
+          "url": "https://example.com/demo/pro/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.480421",
+      "status": "complete"
+    },
+    {
+      "round_number": 10,
+      "exchange_number": 10,
+      "speaker": "Con",
+      "stance": "CON",
+      "claim": "The evidence as a whole supports the Con position: smartphones extend rather than diminish human intelligence. They democratise access to knowledge, scaffold higher-order thinking, enable global collaboration, and adapt to diverse cognitive needs. Any harms from misuse do not negate the overwhelming cognitive benefits of responsible smartphone use. The Con position prevails.",
+      "evidence": [
+        {
+          "snippet": "[DEMO EVIDENCE] Smartphones give instant access to encyclopaedic knowledge, extending human cognition beyond biological limits.",
+          "url": "https://example.com/demo/con/1",
+          "source": "fallback",
+          "label": "fallback/demo"
+        },
+        {
+          "snippet": "[DEMO EVIDENCE] Educational apps and MOOCs delivered via smartphones have democratised learning for millions globally.",
+          "url": "https://example.com/demo/con/2",
+          "source": "fallback",
+          "label": "fallback/demo"
+        }
+      ],
+      "tool_metadata": {
+        "tools_used": [
+          "search(demo)",
+          "demo"
+        ],
+        "search_queries": [
+          "demo"
+        ],
+        "search_results_count": 0,
+        "fallback_used": true
+      },
+      "rebuttal_target": "The cumulative evidence is overwhelming: smartphones, through attentional fragmentation, memory offloading, problem-solv",
+      "confidence_score": 0.9,
+      "timestamp": "2026-06-07T21:11:50.481340",
+      "status": "complete"
+    }
+  ]
+}

@@ -1,297 +1,273 @@
 # AI Agent Debate System
-### "Do Smartphones Make Us Less Smart?"
+### "Do Smartphones Make Us Less Smart?" — Senior Architecture v2
 
-A CLI-based multi-agent AI system where two agents debate a controversial topic and a Judge agent moderates, evaluates, and declares one winner. Built for the **Orchestration of AI Agents** course assignment.
-
----
-
-## Debate Topic
-
-> **"Do smartphones make us less smart?"**
-
-- **Pro Agent** argues: *Yes — smartphones reduce attention span, weaken memory, create dependency, distract from deep thinking, and erode independent problem-solving.*
-- **Con Agent** argues: *No — smartphones increase knowledge access, support learning, improve productivity, enhance communication, and extend human intelligence when used correctly.*
+A CLI multi-agent AI debate: Pro vs Con with an active Judge moderator.
+Structured JSON protocol · OOP inheritance · Skills/Tools separation · Watchdog · Gatekeeper.
 
 ---
 
-## Agent Architecture
-
-The system uses three Claude-powered agents coordinated by a central orchestrator:
+## Architecture Diagram
 
 ```mermaid
 graph TD
-    CLI["CLI (click)"] --> ORCH["DebateOrchestrator"]
-    ORCH --> JUDGE["JudgeAgent\n(Father / Moderator)"]
-    ORCH --> PRO["ProAgent\n(Yes, smartphones harm)"]
-    ORCH --> CON["ConAgent\n(No, smartphones help)"]
-    PRO --> SEARCH1["SerperSearchTool"]
-    CON --> SEARCH2["SerperSearchTool"]
-    SEARCH1 --> SERPER["Serper API\n(Google Search)"]
-    SEARCH2 --> SERPER
+    CLI["CLI (click)\nsrc/cli.py"] --> JUDGE["JudgeAgent\n(Active Orchestrator)\nsrc/agents/judge.py"]
+    JUDGE --> RUNNER["DebateRunner\nsrc/debate/runner.py"]
+    RUNNER --> PRO["ProAgent\nsrc/agents/pro.py"]
+    RUNNER --> CON["ConAgent\nsrc/agents/con.py"]
+    PRO --> SEARCH["SearchTool\nsrc/tools/search.py"]
+    CON --> SEARCH
+    SEARCH -->|live| SERPER["Serper API"]
+    SEARCH -->|fallback| DEMO["Demo Evidence [DEMO]"]
     PRO --> ANTHROPIC["Anthropic Claude API"]
     CON --> ANTHROPIC
     JUDGE --> ANTHROPIC
-    ORCH --> RESULTS["results/\ntranscripts/ | verdicts/ | logs/"]
+    RUNNER --> LOG["LoggingTool → events.jsonl"]
+    RUNNER --> RESULTS["results/\ntranscript.json\nevidence.json\nverdict.json\nrun_summary.json"]
+    WATCHDOG["Watchdog\nsrc/watchdog.py"] -.retries.-> PRO
+    WATCHDOG -.retries.-> CON
+    WATCHDOG -.retries.-> JUDGE
+    GK["Gatekeeper\nsrc/gatekeeper.py"] -.tracks.-> RUNNER
 ```
 
 ---
 
-## Debate Flow
+## Sequence Diagram
 
 ```mermaid
 sequenceDiagram
     participant CLI
-    participant Orch as DebateOrchestrator
     participant Judge as JudgeAgent
+    participant Runner as DebateRunner
     participant Pro as ProAgent
     participant Con as ConAgent
-    participant Search as SerperSearchTool
+    participant Search as SearchTool
 
-    CLI->>Orch: debate --rounds 10
-    Orch->>Judge: generate opening statement
+    CLI->>Judge: run_debate(pro, con, rounds=10)
+    Judge->>Runner: DebateRunner(judge, pro, con).execute()
+    Runner->>Judge: generate_opening()
     loop 10+ Exchange Rounds
-        Orch->>Search: pro_query
-        Search-->>Orch: evidence snippets
-        Orch->>Pro: generate_argument(round, last_con_arg, evidence)
-        Pro-->>Orch: pro_argument
-
-        Orch->>Search: con_query
-        Search-->>Orch: evidence snippets
-        Orch->>Con: generate_argument(round, last_pro_arg, evidence)
-        Con-->>Orch: con_argument
-
-        Orch->>Judge: evaluate_exchange(pro_arg, con_arg, evidence)
-        Judge-->>Orch: evaluation_notes
+        Runner->>Pro: respond(context)
+        Pro->>Search: search(query, "PRO")
+        Search-->>Pro: EvidenceItems (live or demo)
+        Pro-->>Runner: DebateMessage dict (JSON)
+        Runner->>Con: respond(context)
+        Con->>Search: search(query, "CON")
+        Search-->>Con: EvidenceItems
+        Con-->>Runner: DebateMessage dict (JSON)
+        Runner->>Judge: evaluate_exchange(round, pro_msg, con_msg)
+        Judge-->>Runner: evaluation notes
     end
-    Orch->>Judge: declare_winner(full_transcript, all_notes)
-    Judge-->>Orch: ("Pro" | "Con", verdict_text)
-    Orch->>CLI: print winner + save results
+    Runner->>Judge: declare_winner(all_messages)
+    Judge-->>Runner: ("Pro"|"Con", verdict_text)
+    Runner->>Runner: save_transcript / save_evidence / save_verdict
+    Runner-->>CLI: summary dict
 ```
 
 ---
 
-## Watchdog / Retry Architecture
+## Skills vs Tools Separation
+
+| Concept | Location | Purpose |
+|---|---|---|
+| **Skill** | `src/skills/*.md` | Defines HOW the agent thinks: system prompt, persona, fixed position, evaluation criteria |
+| **Tool** | `src/tools/*.py` | Defines WHAT the agent can do: search evidence, log events, track costs |
+
+- `src/skills/judge_skill.md` — Judge evaluation criteria, verdict format
+- `src/skills/pro_skill.md` — Pro position and argument themes
+- `src/skills/con_skill.md` — Con position and argument themes
+- `src/tools/search.py` — SearchTool (Serper + fallback)
+- `src/tools/logging_tool.py` — JSONL structured event logger
+
+---
+
+## JSON Communication Protocol
+
+Every message between agents uses `DebateMessage` (`src/debate/protocol.py`):
+
+```json
+{
+  "round_number": 3,
+  "exchange_number": 3,
+  "speaker": "Pro",
+  "stance": "PRO",
+  "claim": "Smartphones fragment attention...",
+  "evidence": [
+    {"snippet": "...", "url": "...", "source": "serper", "label": "live"}
+  ],
+  "tool_metadata": {
+    "tools_used": ["search", "anthropic"],
+    "search_queries": ["smartphones reduce attention span study"],
+    "search_results_count": 3,
+    "fallback_used": false
+  },
+  "rebuttal_target": "opponent's prior claim snippet...",
+  "confidence_score": 0.85,
+  "timestamp": "2026-06-07T21:11:50",
+  "status": "complete"
+}
+```
+
+---
+
+## OOP Agent Hierarchy
+
+```
+BaseAgent (ABC)          # _load_skill(), _api_call(), respond()
+  ├── DebaterAgent       # respond(), _call_claude() with retry, search integration
+  │     ├── ProAgent     # stance=PRO, 10 rotating search queries
+  │     └── ConAgent     # stance=CON, 10 rotating search queries
+  └── JudgeAgent         # generate_opening(), evaluate_exchange(), declare_winner(), run_debate()
+```
+
+---
+
+## Watchdog Design
 
 ```mermaid
 flowchart LR
-    CALL["API Call"] --> RETRY{"Retry\nDecorator"}
-    RETRY -->|Success| RESULT["Return Result"]
-    RETRY -->|Timeout / RateLimit / ConnectionError| WAIT["Exponential Back-off\n2s → 4s → 8s"]
-    WAIT --> CB{"Circuit\nBreaker"}
-    CB -->|< 5 failures| RETRY
-    CB -->|≥ 5 failures| OPEN["Circuit Open\nPause 120s"]
-    OPEN --> RESET["Reset + Retry"]
-    RETRY -->|Exhausted| LOG["Log Critical\nSave Partial\nExit"]
+    CALL["Agent API Call"] --> WD{"with_retry\ndecorator"}
+    WD -->|success| RESULT["Return Result"]
+    WD -->|timeout/ratelimit| WAIT["Exponential Back-off\n2s → 4s → 8s"]
+    WAIT --> CB{"CircuitBreaker"}
+    CB -->|< 5 failures| WD
+    CB -->|≥ 5 failures| OPEN["Circuit OPEN\n120s pause"]
+    OPEN --> RESET["Reset & Retry"]
+    WD -->|exhausted + fallback| FALLBACK["Return fallback value\nDebate continues"]
 ```
+
+- File: `src/watchdog.py`
+- `with_retry(fallback=...)` — never kills the debate; returns fallback if all retries fail
+- `CircuitBreaker` — global instance protects Serper API calls
 
 ---
 
-## Setup (using UV)
+## Gatekeeper Design
+
+`src/gatekeeper.py` tracks per-run:
+
+| Metric | Description |
+|---|---|
+| `rounds` | Debate rounds completed |
+| `exchanges` | Pro+Con exchange pairs |
+| `characters_used` | Total API response characters |
+| `approx_tokens` | characters ÷ 4 estimate |
+| `search_calls` | Total SearchTool invocations |
+| `retries` | Watchdog retry events |
+| `failures_recovered` | Calls recovered via fallback |
+
+Saved to `results/run_summary.json`.
+
+---
+
+## External Search Setup
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/awawdyamal04/ai-agent-debate.git
-cd ai-agent-debate
+# Set in .env:
+SERPER_API_KEY=your-key-from-serper.dev
+```
 
-# 2. Create virtual environment with UV
+If not set, the system automatically uses clearly-labelled demo evidence:
+> `[DEMO EVIDENCE] Research suggests...`
+
+Live search uses `https://google.serper.dev/search` (POST, `X-API-KEY` header).
+
+---
+
+## Fallback Mode
+
+When `SERPER_API_KEY` is missing: search returns pre-written evidence labelled `"label": "fallback/demo"`.
+When `ANTHROPIC_API_KEY` is missing: run `--demo` flag for pre-written full arguments.
+The system never crashes due to missing keys — it degrades gracefully.
+
+---
+
+## UV Setup Commands
+
+```bash
+# Install UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create virtual environment
 uv venv .venv
+source .venv/bin/activate   # Linux/Mac
+# .venv\Scripts\activate    # Windows
 
-# 3. Activate
-source .venv/bin/activate        # Linux / Mac
-# .venv\Scripts\activate          # Windows PowerShell
-
-# 4. Install dependencies
+# Install dependencies
 uv pip install -r requirements.txt
 
-# 5. Configure API keys
+# Configure API keys
 cp .env.example .env
-# Edit .env and fill in your keys:
-#   ANTHROPIC_API_KEY=sk-ant-...
-#   SERPER_API_KEY=...
+# Edit .env: ANTHROPIC_API_KEY=sk-ant-...  (required for live run)
+#            SERPER_API_KEY=...             (optional — enables live search)
 ```
 
 ---
 
-## Run Commands
+## CLI Run Commands
 
 ```bash
-# Run the full debate (default 10 rounds)
-python -m src.cli debate
+# Demo run — no API key required, architecture fully exercised
+python -m src.main debate --demo
 
-# Run with more rounds
-python -m src.cli debate --rounds 15
+# Live run — requires ANTHROPIC_API_KEY in .env
+python -m src.main debate
 
-# Verbose output (shows debug info)
-python -m src.cli debate --verbose
+# Custom rounds (min 10)
+python -m src.main debate --rounds 12
 
-# Check that API keys are working
-python -m src.cli check-health
+# Debug logging
+python -m src.main debate --verbose
 
-# Show loaded configuration
-python -m src.cli show-config
+# Show loaded config
+python -m src.main show-config
 
-# Display a saved transcript
-python -m src.cli show-transcript results/transcripts/debate_20260607_120000.json
+# Health-check Anthropic API
+python -m src.main check-health
+
+# Display saved transcript
+python -m src.main show-transcript
 ```
 
 ---
 
-## Expected Output
-
-When the debate runs, the console shows:
-
-```
-╔══════════════════════════════════════════════════════════╗
-║       AI AGENT DEBATE — Round 1 / 10                    ║
-╠══════════════════════════════════════════════════════════╣
-║  PRO  │ Smartphones have been shown to reduce attention  ║
-║       │ span. A Stanford study found that...            ║
-╠══════════════════════════════════════════════════════════╣
-║  CON  │ On the contrary, smartphones democratize access  ║
-║       │ to education. UNESCO data shows...              ║
-╚══════════════════════════════════════════════════════════╝
-
-[Judge evaluating exchange 1...]
-
-... (10+ rounds) ...
-
-╔══════════════════════════════════════════════════════════╗
-║  VERDICT                                                 ║
-║  Winner: CON AGENT                                       ║
-║  Reason: The Con agent provided stronger factual...      ║
-╚══════════════════════════════════════════════════════════╝
-
-Results saved to:
-  Transcript: results/transcripts/debate_20260607_120000.json
-  Verdict:    results/verdicts/verdict_20260607_120000.txt
-  Log:        results/logs/debate_20260607_120000.log
-```
-
----
-
-## Where Results Are Saved
-
-| File | Path | Contents |
-|---|---|---|
-| Transcript | `results/transcripts/debate_<timestamp>.json` | Full debate JSON with search evidence |
-| Verdict | `results/verdicts/verdict_<timestamp>.txt` | Judge's decision and reasoning |
-| Log | `results/logs/debate_<timestamp>.log` | Retry events, API calls, errors |
-
----
-
-## Code Structure
-
-```
-src/
-├── cli.py                    # click CLI entry point
-├── config/
-│   ├── settings.py           # env vars + constants
-│   └── prompts.py            # all system prompts
-├── agents/
-│   ├── judge.py              # JudgeAgent
-│   ├── pro.py                # ProAgent
-│   └── con.py                # ConAgent
-├── tools/
-│   └── search.py             # SerperSearchTool
-├── debate/
-│   ├── orchestrator.py       # DebateOrchestrator
-│   └── transcript.py         # dataclasses + serialization
-├── watchdog/
-│   └── retry.py              # with_retry, CircuitBreaker
-└── utils/
-    ├── logger.py             # loguru setup
-    └── results.py            # file save/load helpers
-
-tests/
-├── conftest.py
-├── test_search.py
-├── test_watchdog.py
-├── test_pro_agent.py
-├── test_con_agent.py
-├── test_judge.py
-├── test_orchestrator.py
-└── test_cli.py
-
-results/
-├── transcripts/
-├── verdicts/
-└── logs/
-```
-
----
-
-## Testing Instructions
+## Verification Commands
 
 ```bash
-# Run all unit tests
-pytest tests/
+# Run all 12 verification checks
+python tests/verify.py
 
-# Verbose with short tracebacks
-pytest tests/ -v --tb=short
+# Check every Python file is ≤ 150 lines
+find src -name "*.py" | xargs wc -l | sort -n
 
-# Run only integration tests (requires real API keys)
-pytest tests/ -m integration
-
-# Run with coverage
-pytest tests/ --cov=src --cov-report=term-missing
-
-# Check no file exceeds 150 lines (any result above 150 must be split before committing)
-find src -name "*.py" -exec wc -l {} + | sort -n
+# Inspect saved results
+cat results/verdict.json
+cat results/run_summary.json
+head -5 results/events.jsonl | python3 -m json.tool
 ```
 
 ---
 
-## AI Prompts Used
+## Result Files
 
-### Pro Agent System Prompt (summary)
-> "You are the Pro debater. Your fixed position is: YES, smartphones make us less smart. You must argue that smartphones reduce attention span, weaken memory, create cognitive dependency, distract from deep thinking, and erode independent problem-solving. You must maintain this position in every round without exception. Use the search evidence provided to support your claims with real data."
-
-### Con Agent System Prompt (summary)
-> "You are the Con debater. Your fixed position is: NO, smartphones do not make us less smart. You must argue that smartphones democratize knowledge, support lifelong learning, improve productivity, enhance communication, and extend human cognitive capabilities when used responsibly. Maintain this position in every round. Use the search evidence provided to support your claims."
-
-### Judge Agent System Prompt (summary)
-> "You are the Judge and moderator of this debate. You do not argue — you evaluate. After each exchange, assess argument quality, factual evidence, logical consistency, and relevance. After all rounds are complete, compile your notes and declare exactly one winner: either 'Pro' or 'Con'. A tie is not permitted. Provide your full reasoning."
-
----
-
-## Vibe Coding Lifecycle
-
-This project follows the **Vibe Coding** lifecycle:
-
-| Stage | Description | Artifact |
-|---|---|---|
-| **Idea** | Define the concept and goals | Initial prompt |
-| **PRD** | Formalize requirements | `prd.md` |
-| **Plan** | Design modular architecture | `plan.md` |
-| **TODO** | Break plan into granular tasks | `todo.md` |
-| **Verify** | Review docs before coding | Human review checkpoint |
-| **Execute** | Implement code module by module | `src/` |
-| **Push** | Commit, tag, and submit | GitHub repository |
-
-> No implementation code is written until the documentation is reviewed and approved.
+| File | Contents |
+|---|---|
+| `results/transcript.json` | All 20 DebateMessage objects with full JSON protocol |
+| `results/evidence.json` | Evidence by round (Pro + Con) |
+| `results/verdict.json` | Winner (`"Pro"` or `"Con"`) + full verdict text |
+| `results/events.jsonl` | Structured JSONL event log |
+| `results/run_summary.json` | Gatekeeper stats (rounds, tokens, searches, retries) |
+| `results/debate.log` | Rotating loguru file log |
 
 ---
 
-## GitHub Submission Steps
+## GitHub Commit/Push Workflow
 
 ```bash
-# Initialize git (if not done)
-git init
-git remote add origin https://github.com/awawdyamal04/ai-agent-debate.git
-
-# Stage and commit documentation
-git add prd.md plan.md todo.md README.md requirements.txt .gitignore
-git commit -m "docs: add Vibe Coding documentation files"
-
-# After implementation, commit source
-git add src/ tests/ results/ .env.example pyproject.toml
-git commit -m "feat: implement multi-agent debate system"
-
-# Tag and push
-git tag v1.0.0
-git push origin main --tags
-
-# Submit the repository URL to the course portal
+git add src/ tests/ results/ pyproject.toml .env.example plan.md README.md todo.md
+git commit -m "feat: implement senior architecture v2 — OOP agents, JSON protocol, watchdog, gatekeeper"
+git push origin main
+git tag v2.0.0
+git push origin --tags
 ```
 
 ---
@@ -300,7 +276,7 @@ git push origin main --tags
 
 - **Course:** Orchestration of AI Agents
 - **Student:** awawdyamal04
-- **Model:** Claude (claude-sonnet-4-6 via Anthropic API)
-- **Search:** Serper API (Google Search)
-- **Environment:** UV virtual environment
-- **Interface:** CLI only
+- **Model:** claude-sonnet-4-6 (live) / pre-written args (demo)
+- **Search:** Serper API with automatic fallback
+- **Environment:** UV / Python 3.11+
+- **Interface:** CLI only (`python -m src.main`)

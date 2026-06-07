@@ -1,0 +1,42 @@
+[project]
+name = "ai-agent-debate"
+version = "1.0.0"
+description = "Multi-agent AI debate system — Pro vs Con with an active Judge moderator"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "requests>=2.32.0",
+    "click>=8.1.0",
+    "rich>=13.9.0",
+    "loguru>=0.7.0",
+    "python-dotenv>=1.0.0",
+    "tenacity>=9.0.0",
+]
+
+[project.scripts]
+debate-agents = "src.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: requires real API keys",
+    "slow: long-running tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

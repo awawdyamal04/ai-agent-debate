@@ -1,0 +1,11 @@
+{
+  "rounds": 10,
+  "exchanges": 10,
+  "characters_used": 0,
+  "approx_tokens": 0,
+  "search_calls": 0,
+  "retries": 0,
+  "failures_recovered": 0,
+  "start_time": "2026-06-07T21:11:49.542147",
+  "end_time": "2026-06-07T21:11:50.486020"
+}
