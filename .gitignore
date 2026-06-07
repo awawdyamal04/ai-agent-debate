@@ -1,0 +1,57 @@
+# Environment & secrets
+.env
+*.env.local
+
+# Virtual environments
+.venv/
+venv/
+env/
+__pyenv__/
+
+# UV
+.uv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# IDE & editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs (keep results/ committed, but ignore raw loguru rotations)
+*.log.gz
+*.log.1
+
+# OS
+.DS_Store
+desktop.ini

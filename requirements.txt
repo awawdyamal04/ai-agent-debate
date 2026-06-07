@@ -1,0 +1,28 @@
+# Core AI
+anthropic>=0.40.0
+
+# HTTP & Search
+requests>=2.32.0
+httpx>=0.27.0
+
+# Retry / Watchdog
+tenacity>=9.0.0
+
+# CLI & Output
+click>=8.1.0
+rich>=13.9.0
+
+# Logging
+loguru>=0.7.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=8.3.0
+pytest-asyncio>=0.24.0
+pytest-cov>=6.0.0
+
+# Code Quality
+ruff>=0.8.0
+mypy>=1.13.0
