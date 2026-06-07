@@ -123,11 +123,28 @@ Human debates are subjective and hard to automate fairly. This project explores 
 | Environment manager | UV (`uv venv`, `uv pip install`) |
 | Interface | CLI only — no web UI, no notebooks |
 | Code organization | All Python inside `src/` |
-| File size limit | No single `.py` file may exceed 150 lines |
+| File size limit | No single `.py` file under `src/` may exceed 150 lines. If a file would exceed this limit, split it into smaller focused modules. Never remove functionality to reduce line count. |
 | Minimum exchanges | At least 10 Pro↔Con exchanges before verdict |
 | Winner | Exactly one winner — no ties |
 | Results persistence | All outputs saved inside `results/` |
 | Module structure | Each agent, tool, and concern in its own module |
+
+---
+
+## File Size Rule
+
+Every Python file under `src/` must be **at most 150 lines** (blank lines and comments included in the count). This rule does not apply to `README.md`, `prd.md`, `plan.md`, or `todo.md`.
+
+**Enforcement rules:**
+- If any module would exceed 150 lines, split it into two or more focused submodules (e.g., `judge.py` → `judge_eval.py` + `judge_verdict.py`).
+- You may create as many files as needed — there is no upper limit on the number of modules.
+- Never remove functionality or comment out code solely to stay under 150 lines.
+
+**Verification command (run before every commit):**
+```bash
+find src -name "*.py" -exec wc -l {} + | sort -n
+```
+Any file showing a line count above 150 must be split before committing.
 
 ---
 

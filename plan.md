@@ -55,6 +55,31 @@ ai-agent-debate/
 
 ---
 
+## File Size Rule
+
+Every Python file under `src/` must be **at most 150 lines**. This limit does not apply to documentation files (`README.md`, `prd.md`, `plan.md`, `todo.md`).
+
+| Rule | Detail |
+|---|---|
+| Scope | All `.py` files under `src/` |
+| Hard limit | 150 lines (blank lines and comments count) |
+| When exceeded | Split the file into two or more focused submodules |
+| Functionality | Never remove or stub out code just to hit the limit |
+| Extra modules | Unlimited — create as many files as the design requires |
+
+**Verification command:**
+```bash
+find src -name "*.py" -exec wc -l {} + | sort -n
+```
+Run this before every commit. Any result above 150 must be split before the commit proceeds.
+
+**Example splits that may be needed:**
+- `orchestrator.py` → `orchestrator.py` + `display.py` (if Rich printing inflates line count)
+- `judge.py` → `judge_eval.py` + `judge_verdict.py` (if evaluation + verdict logic is too large)
+- `cli.py` → `cli.py` + `cli_display.py` (if command handlers grow large)
+
+---
+
 ## File and Folder Structure — Module Explanations
 
 ### `src/config/settings.py`

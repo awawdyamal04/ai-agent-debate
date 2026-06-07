@@ -1,5 +1,5 @@
 # TODO — AI Agent Debate System
-## Highly Granular Task Checklist (520 tasks)
+## Highly Granular Task Checklist (565 tasks)
 
 > Instructions for AI coding agent: complete tasks in order. Mark each `[x]` immediately upon completion. Never skip a task. Never modify more than one module at a time without verifying the previous module first.
 
@@ -9,7 +9,7 @@
 
 ### 1.1 Repository & Environment
 - [ ] 1. Verify git is initialized in the project root (`git status`)
-- [ ] 2. Verify current branch is `master`
+- [ ] 2. Verify current branch is `main`
 - [ ] 3. Check that UV is installed (`uv --version`)
 - [ ] 4. Run `uv venv .venv` to create the virtual environment
 - [ ] 5. Activate the virtual environment (`source .venv/bin/activate`)
@@ -615,7 +615,7 @@
 - [ ] 514. Verify `search_evidence` fields are populated in exchanges
 - [ ] 515. Verify verdict text file exists in `results/verdicts/`
 - [ ] 516. Verify log file exists in `results/logs/`
-- [ ] 517. Count lines in each `src/*.py` file — none may exceed 150
+- [ ] 517. Run `find src -name "*.py" -exec wc -l {} + | sort -n` — confirm every file is ≤ 150 lines; if any exceeds 150, split it before continuing
 - [ ] 518. Run `python -m src.cli show-config` — verify output is correct
 - [ ] 519. Run `python -m src.cli show-transcript <path>` — verify readable output
 - [ ] 520. Commit `results/` from this run as proof of successful execution
@@ -634,7 +634,7 @@
 - [ ] 528. Verify all imports are used (no unused imports)
 - [ ] 529. Verify all public methods have type hints on signature
 - [ ] 530. Verify all `dataclass` fields have type annotations
-- [ ] 531. Confirm no Python file in `src/` exceeds 150 lines (`wc -l src/**/*.py`)
+- [ ] 531. Run `find src -name "*.py" -exec wc -l {} + | sort -n` — every file must be ≤ 150 lines; split any that exceed the limit
 - [ ] 532. Confirm no Python file in `tests/` exceeds 150 lines
 - [ ] 533. Remove any debug `print` statements added during development
 - [ ] 534. Remove any commented-out code blocks
@@ -670,7 +670,7 @@
 - [ ] 554. Commit: `git commit -m "feat: implement multi-agent debate system"`
 - [ ] 555. Stage results: `git add results/`
 - [ ] 556. Commit: `git commit -m "results: add proof-of-execution from successful debate run"`
-- [ ] 557. Push to remote: `git push origin master`
+- [ ] 557. Push to remote: `git push origin main`
 - [ ] 558. Verify all files are on GitHub
 - [ ] 559. Check repository is public
 - [ ] 560. Tag release: `git tag v1.0.0`

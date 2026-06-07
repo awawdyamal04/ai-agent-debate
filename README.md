@@ -235,8 +235,8 @@ pytest tests/ -m integration
 # Run with coverage
 pytest tests/ --cov=src --cov-report=term-missing
 
-# Check no file exceeds 150 lines
-find src/ -name "*.py" | xargs wc -l | sort -rn
+# Check no file exceeds 150 lines (any result above 150 must be split before committing)
+find src -name "*.py" -exec wc -l {} + | sort -n
 ```
 
 ---
@@ -289,7 +289,7 @@ git commit -m "feat: implement multi-agent debate system"
 
 # Tag and push
 git tag v1.0.0
-git push origin master --tags
+git push origin main --tags
 
 # Submit the repository URL to the course portal
 ```
