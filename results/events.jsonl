@@ -1,33 +1,33 @@
-{"timestamp": "2026-06-07T21:45:27.878388", "event_type": "debate_start", "topic": "Do smartphones make us less smart?", "num_rounds": 10}
-{"timestamp": "2026-06-07T21:45:29.316939", "event_type": "debate_message", "speaker": "Pro", "round": 1, "exchange": 1, "claim_chars": 385, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.318246", "event_type": "debate_message", "speaker": "Con", "round": 1, "exchange": 1, "claim_chars": 429, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.319177", "event_type": "judge_evaluation", "round": 1, "notes_chars": 180}
-{"timestamp": "2026-06-07T21:45:29.319942", "event_type": "debate_message", "speaker": "Pro", "round": 2, "exchange": 2, "claim_chars": 444, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.321020", "event_type": "debate_message", "speaker": "Con", "round": 2, "exchange": 2, "claim_chars": 377, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.321972", "event_type": "judge_evaluation", "round": 2, "notes_chars": 211}
-{"timestamp": "2026-06-07T21:45:29.322910", "event_type": "debate_message", "speaker": "Pro", "round": 3, "exchange": 3, "claim_chars": 362, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.324190", "event_type": "debate_message", "speaker": "Con", "round": 3, "exchange": 3, "claim_chars": 319, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.325893", "event_type": "judge_evaluation", "round": 3, "notes_chars": 179}
-{"timestamp": "2026-06-07T21:45:29.326923", "event_type": "debate_message", "speaker": "Pro", "round": 4, "exchange": 4, "claim_chars": 370, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.327930", "event_type": "debate_message", "speaker": "Con", "round": 4, "exchange": 4, "claim_chars": 364, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.328887", "event_type": "judge_evaluation", "round": 4, "notes_chars": 183}
-{"timestamp": "2026-06-07T21:45:29.329745", "event_type": "debate_message", "speaker": "Pro", "round": 5, "exchange": 5, "claim_chars": 350, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.330636", "event_type": "debate_message", "speaker": "Con", "round": 5, "exchange": 5, "claim_chars": 331, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.331651", "event_type": "judge_evaluation", "round": 5, "notes_chars": 213}
-{"timestamp": "2026-06-07T21:45:29.332445", "event_type": "debate_message", "speaker": "Pro", "round": 6, "exchange": 6, "claim_chars": 332, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.333489", "event_type": "debate_message", "speaker": "Con", "round": 6, "exchange": 6, "claim_chars": 371, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.334505", "event_type": "judge_evaluation", "round": 6, "notes_chars": 184}
-{"timestamp": "2026-06-07T21:45:29.335241", "event_type": "debate_message", "speaker": "Pro", "round": 7, "exchange": 7, "claim_chars": 366, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.336128", "event_type": "debate_message", "speaker": "Con", "round": 7, "exchange": 7, "claim_chars": 339, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.336987", "event_type": "judge_evaluation", "round": 7, "notes_chars": 195}
-{"timestamp": "2026-06-07T21:45:29.337767", "event_type": "debate_message", "speaker": "Pro", "round": 8, "exchange": 8, "claim_chars": 339, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.338754", "event_type": "debate_message", "speaker": "Con", "round": 8, "exchange": 8, "claim_chars": 337, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.339784", "event_type": "judge_evaluation", "round": 8, "notes_chars": 187}
-{"timestamp": "2026-06-07T21:45:29.340915", "event_type": "debate_message", "speaker": "Pro", "round": 9, "exchange": 9, "claim_chars": 362, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.342258", "event_type": "debate_message", "speaker": "Con", "round": 9, "exchange": 9, "claim_chars": 301, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.343205", "event_type": "judge_evaluation", "round": 9, "notes_chars": 175}
-{"timestamp": "2026-06-07T21:45:29.344052", "event_type": "debate_message", "speaker": "Pro", "round": 10, "exchange": 10, "claim_chars": 337, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.344928", "event_type": "debate_message", "speaker": "Con", "round": 10, "exchange": 10, "claim_chars": 377, "evidence_count": 2, "fallback_used": true, "status": "complete"}
-{"timestamp": "2026-06-07T21:45:29.345848", "event_type": "judge_evaluation", "round": 10, "notes_chars": 212}
-{"timestamp": "2026-06-07T21:45:29.347639", "event_type": "verdict", "winner": "Con", "verdict_chars": 1511}
-{"timestamp": "2026-06-07T21:45:29.347927", "event_type": "debate_end", "winner": "Con", "total_exchanges": 10}
+{"timestamp": "2026-06-07T21:48:33.432233", "event_type": "debate_start", "topic": "Do smartphones make us less smart?", "num_rounds": 10}
+{"timestamp": "2026-06-07T21:48:34.332188", "event_type": "debate_message", "speaker": "Pro", "round": 1, "exchange": 1, "claim_chars": 385, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.333976", "event_type": "debate_message", "speaker": "Con", "round": 1, "exchange": 1, "claim_chars": 429, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.336041", "event_type": "judge_evaluation", "round": 1, "notes_chars": 180}
+{"timestamp": "2026-06-07T21:48:34.337122", "event_type": "debate_message", "speaker": "Pro", "round": 2, "exchange": 2, "claim_chars": 444, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.338370", "event_type": "debate_message", "speaker": "Con", "round": 2, "exchange": 2, "claim_chars": 377, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.339421", "event_type": "judge_evaluation", "round": 2, "notes_chars": 211}
+{"timestamp": "2026-06-07T21:48:34.340527", "event_type": "debate_message", "speaker": "Pro", "round": 3, "exchange": 3, "claim_chars": 362, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.341465", "event_type": "debate_message", "speaker": "Con", "round": 3, "exchange": 3, "claim_chars": 319, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.342313", "event_type": "judge_evaluation", "round": 3, "notes_chars": 179}
+{"timestamp": "2026-06-07T21:48:34.343137", "event_type": "debate_message", "speaker": "Pro", "round": 4, "exchange": 4, "claim_chars": 370, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.344390", "event_type": "debate_message", "speaker": "Con", "round": 4, "exchange": 4, "claim_chars": 364, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.345835", "event_type": "judge_evaluation", "round": 4, "notes_chars": 183}
+{"timestamp": "2026-06-07T21:48:34.347052", "event_type": "debate_message", "speaker": "Pro", "round": 5, "exchange": 5, "claim_chars": 350, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.348876", "event_type": "debate_message", "speaker": "Con", "round": 5, "exchange": 5, "claim_chars": 331, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.349969", "event_type": "judge_evaluation", "round": 5, "notes_chars": 213}
+{"timestamp": "2026-06-07T21:48:34.351441", "event_type": "debate_message", "speaker": "Pro", "round": 6, "exchange": 6, "claim_chars": 332, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.352608", "event_type": "debate_message", "speaker": "Con", "round": 6, "exchange": 6, "claim_chars": 371, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.353596", "event_type": "judge_evaluation", "round": 6, "notes_chars": 184}
+{"timestamp": "2026-06-07T21:48:34.354534", "event_type": "debate_message", "speaker": "Pro", "round": 7, "exchange": 7, "claim_chars": 366, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.355410", "event_type": "debate_message", "speaker": "Con", "round": 7, "exchange": 7, "claim_chars": 339, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.356505", "event_type": "judge_evaluation", "round": 7, "notes_chars": 195}
+{"timestamp": "2026-06-07T21:48:34.357549", "event_type": "debate_message", "speaker": "Pro", "round": 8, "exchange": 8, "claim_chars": 339, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.358426", "event_type": "debate_message", "speaker": "Con", "round": 8, "exchange": 8, "claim_chars": 337, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.359307", "event_type": "judge_evaluation", "round": 8, "notes_chars": 187}
+{"timestamp": "2026-06-07T21:48:34.360127", "event_type": "debate_message", "speaker": "Pro", "round": 9, "exchange": 9, "claim_chars": 362, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.361055", "event_type": "debate_message", "speaker": "Con", "round": 9, "exchange": 9, "claim_chars": 301, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.361928", "event_type": "judge_evaluation", "round": 9, "notes_chars": 175}
+{"timestamp": "2026-06-07T21:48:34.362796", "event_type": "debate_message", "speaker": "Pro", "round": 10, "exchange": 10, "claim_chars": 337, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.363644", "event_type": "debate_message", "speaker": "Con", "round": 10, "exchange": 10, "claim_chars": 377, "evidence_count": 2, "fallback_used": true, "status": "complete"}
+{"timestamp": "2026-06-07T21:48:34.365781", "event_type": "judge_evaluation", "round": 10, "notes_chars": 212}
+{"timestamp": "2026-06-07T21:48:34.368707", "event_type": "verdict", "winner": "Con", "verdict_chars": 1511}
+{"timestamp": "2026-06-07T21:48:34.369077", "event_type": "debate_end", "winner": "Con", "total_exchanges": 10}
